@@ -10,12 +10,22 @@
 From your terminal:
 
 ```sh
+supabase start
+```
+
+```sh
 yarn run dev
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.
 
 ## Deployment
+
+If you've made any database migrations that are ready to be pushed to a live Supabase instance.
+
+```sh
+supabase db push
+```
 
 First, build your app for production:
 
