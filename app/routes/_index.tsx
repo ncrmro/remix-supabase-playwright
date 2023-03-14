@@ -14,20 +14,11 @@ export default function Index() {
         <li>
           <Link to="/signup">Signup</Link>
         </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {viewer && (
+          <li>
+            <Link to="/todos">Todos</Link>
+          </li>
+        )}
       </ul>
     </div>
   );

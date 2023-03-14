@@ -43,7 +43,7 @@ export default function useSupabase() {
 export async function supabaseAuthenticatedRoute(
   args: DataFunctionArgs,
   response = new Response()
-): Promise<[Response, SupabaseClient]> {
+): Promise<[Response, SupabaseClient<Database, "public">]> {
   const supabase = supabaseServerClient(args, response);
   const {
     data: { session },
