@@ -19,6 +19,59 @@ yarn run dev
 
 This starts your app in development mode, rebuilding assets on file changes.
 
+### Testing
+
+Playwright tests can be ran with:
+
+```sh
+yarn test
+```
+
+Running only tests containing `signup`
+
+```sh
+yarn test -g signup
+```
+
+#### [Playwright fixtures](https://playwright.dev/docs/test-fixtures)
+
+By specifying the user fixture `async ({ page, user })`
+
+Playwright will set the Supabase session cookie and all the user will already be authenticated durign the test.
+
+```typescript
+import { test } from "./fixtures";
+
+test("Already authenticated user", async ({ page, user }) => {
+  await page.goto("/todos");
+});
+```
+
+---
+
+The database fixture `async ({ page, db })`
+
+```typescript
+import { test } from "./fixtures";
+
+test("Already authenticated user", async ({ page, db }) => {
+  await page.goto("/todos/new");
+  // Create todo on frontend...
+
+  await db.query(
+    `SELECT * FROM todos WHERE user_id=$1`,
+    [user.id]
+  );
+  
+  // Wait for query will retry the query until the last paramter returns true or timeout.
+  await db.waitForQuery(
+    `SELECT * FROM todos WHERE user_id=$1`,
+    [user.id],
+    ({ rowCount }) => rowCount === 1
+  );
+});
+```
+
 ## Deployment
 
 If you've made any database migrations that are ready to be pushed to a live Supabase instance.
