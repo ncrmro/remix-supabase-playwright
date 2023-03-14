@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("has title", async ({ page }) => {
   await page.goto("/");
@@ -17,10 +17,6 @@ test("login with seed user", async ({ page }) => {
   // Test todos route
   await page.locator("a", { hasText: "todos" }).click();
   await page.locator("li", { hasText: "Read Remix Docs true" }).waitFor();
-  // Test creating a new todo
-  await page.locator("a", { hasText: "Add Todo" }).click();
-  await page.locator("input").fill(`Test ${Date.now()}`);
-  await page.locator("button", { hasText: "Create" }).click();
 });
 
 test("signup", async ({ page }) => {
@@ -33,4 +29,19 @@ test("signup", async ({ page }) => {
   await page.locator("button", { hasText: "Submit" }).click();
   await page.waitForURL("/?index");
   await page.locator("p", { hasText: "Welcome back test@example.com" });
+});
+
+test("User can create todo", async ({ page, user, db }) => {
+  await page.goto("/todos");
+  await page.locator("h1", { hasText: "Your Todos" }).waitFor();
+  await page.locator("a", { hasText: "Add Todo" }).click();
+  await page.locator("input").fill(`Test`);
+  await page.locator("button", { hasText: "Create" }).click();
+  await page.waitForURL("/todos");
+  await page.locator("li", { hasText: "Test" });
+  await db.waitForQuery(
+    `SELECT * FROM todos WHERE user_id=$1`,
+    [user.id],
+    ({ rowCount }) => rowCount === 1
+  );
 });
