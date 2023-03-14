@@ -1,13 +1,16 @@
-# Welcome to Remix!
+# Welcome to Remix Supabase Playwright!
 
 - [Remix Docs](https://remix.run/docs)
+- [Playwright Docs](https://playwright.dev/docs/intro)
+- [Supabase CLI Docs](https://supabase.com/docs/guides/cli)
+- [Supabase JS Client Docs](https://supabase.com/docs/reference/javascript/introduction)
 
 ## Development
 
 From your terminal:
 
 ```sh
-npm run dev
+yarn run dev
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.
@@ -17,13 +20,13 @@ This starts your app in development mode, rebuilding assets on file changes.
 First, build your app for production:
 
 ```sh
-npm run build
+yarn run build
 ```
 
 Then run the app in production mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 Now you'll need to pick a host to deploy it to.

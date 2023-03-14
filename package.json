@@ -3,9 +3,10 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev",
+    "dev": "remix dev -p 4000",
     "start": "remix-serve build",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test": "playwright test"
   },
   "dependencies": {
     "@remix-run/node": "^1.14.1",
@@ -16,6 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.31.2",
     "@remix-run/dev": "^1.14.1",
     "@remix-run/eslint-config": "^1.14.1",
     "@types/react": "^18.0.25",
