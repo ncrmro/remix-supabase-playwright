@@ -14,8 +14,13 @@ test("login with seed user", async ({ page }) => {
   await page.locator("button", { hasText: "Login" }).click();
   await page.waitForURL("/?index");
   await page.locator("p", { hasText: "Welcome back test@example.com" });
+  // Test todos route
   await page.locator("a", { hasText: "todos" }).click();
   await page.locator("li", { hasText: "Read Remix Docs true" }).waitFor();
+  // Test creating a new todo
+  await page.locator("a", { hasText: "Add Todo" }).click();
+  await page.locator("input").fill(`Test ${Date.now()}`);
+  await page.locator("button", { hasText: "Create" }).click();
 });
 
 test("signup", async ({ page }) => {

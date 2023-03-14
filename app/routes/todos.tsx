@@ -1,7 +1,7 @@
 import { Database } from "~/supabase.types";
 import { json, LoaderFunction } from "@remix-run/node";
 import { supabaseAuthenticatedRoute } from "~/utils/supabase";
-import { useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 
 type Todo = Database["public"]["Tables"]["todos"]["Row"];
 
@@ -24,7 +24,17 @@ export default function TodosRoute() {
   const { todos } = useLoaderData<LoaderData>();
   return (
     <div>
-      <h1>Your Todos</h1>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <h1>Your Todos</h1>
+        <Link to="/todos/create">Add Todo</Link>
+      </div>
+      <Outlet />
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
