@@ -6,7 +6,8 @@
     "dev": "remix dev -p 4000",
     "start": "remix-serve build",
     "typecheck": "tsc",
-    "test": "playwright test"
+    "test": "playwright test",
+    "typegen": "supabase gen types typescript --local > app/supabase.types.ts"
   },
   "dependencies": {
     "@remix-run/node": "^1.14.1",
