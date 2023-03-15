@@ -47,9 +47,9 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
     await use(db);
     await db.release();
   },
-  user: async ({ db, supabase, context }, use) => {
+  user: async ({ db, supabase, context }, use, testInfo) => {
     const time = Date.now();
-    const username = `user${time}`;
+    const username = `user${testInfo.workerIndex}${time}`;
     const email = `${username}@test.com`;
     const password = "password";
     const {
