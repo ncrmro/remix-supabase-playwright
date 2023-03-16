@@ -3,7 +3,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev -p 4000",
+    "dev": "remix dev -p 3000",
     "start": "remix-serve build",
     "typecheck": "tsc",
     "test": "playwright test",
