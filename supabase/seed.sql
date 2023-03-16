@@ -8,7 +8,7 @@ VALUES ('00000000-0000-0000-0000-000000000000'::uuid, 'f76629c5-a070-4bbc-9918-6
     "providers": [
       "email"
     ]
-  }');
+  }', '{}', FALSE, '2022-02-11 21:02:04.542', '2022-02-11 21:02:04.542', NULL, NULL, '', '', '', '');
 
 INSERT INTO auth.identities (id, user_id, identity_data, provider, last_sign_in_at, created_at, updated_at)
 VALUES ('f76629c5-a070-4bbc-9918-64beaea48848', 'f76629c5-a070-4bbc-9918-64beaea48848'::uuid, '{
