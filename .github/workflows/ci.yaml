@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: supabase db start
+      - run: supabase start
       - run: supabase db lint
 #      - run: supabase test db
       - name: Install dependencies
