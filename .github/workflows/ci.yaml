@@ -28,3 +28,7 @@ jobs:
         run: yarn
       - run: yarn build
       - run: cp .env.example .env
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run tests
+        run: npx playwright test
