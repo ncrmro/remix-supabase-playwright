@@ -1,5 +1,6 @@
-import { Database } from "~/supabase.types";
-import { json, LoaderFunction } from "@remix-run/node";
+import type { Database } from "~/supabase.types";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { supabaseAuthenticatedRoute } from "~/utils/supabase";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 

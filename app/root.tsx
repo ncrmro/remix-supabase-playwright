@@ -13,7 +13,7 @@ import { json } from "@remix-run/node";
 import type { Session } from "@supabase/auth-helpers-remix";
 import React from "react";
 import { createBrowserClient } from "@supabase/auth-helpers-remix";
-import { Database } from "~/supabase.types";
+import type { Database } from "~/supabase.types";
 import { GlobalContext } from "./utils/globalContext";
 
 type LoaderData = {

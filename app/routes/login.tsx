@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "@remix-run/react";
 import { redirect } from "@remix-run/router";
-import { json, LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import useSupabase, { supabaseServerClient } from "~/utils/supabase";
 
 export const loader: LoaderFunction = async (args) => {
